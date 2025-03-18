@@ -1,5 +1,4 @@
 # synthetic-image-detection
-```markdown
 <a id="中文"></a>
 # 🔍 AI图像检测器（双模型融合）[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yourusername/your-repo/pulls)
 
