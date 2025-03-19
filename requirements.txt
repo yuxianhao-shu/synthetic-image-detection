@@ -37,3 +37,4 @@ torchvision==0.12.0
 tqdm==4.66.1
 opencv_python==4.8.1.78
 opencv_python_headless==4.9.0.80
+openai
