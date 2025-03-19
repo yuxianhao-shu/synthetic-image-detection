@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ```
 
 ## 📥 模型下载
-从[百度网盘](https://pan.baidu.com/s/1Wk2Cqeav_wVxPMPNy-zHZQ?pwd=bcmi)下载预训练权重，放置于：
+从[云盘链接](https://drive.google.com/drive/folders/1qvUz0MgrVwG1B1ntkUVcRuYY0864jqcy)下载预训练权重，放置于：
 ```
 synthetic-image-detection\AIDE
 ```
