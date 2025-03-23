@@ -1,7 +1,6 @@
 import os
 import time
 import stat
-
 class FolderCleaner:
     """安全删除文件夹内所有文件（保留目录结构）"""
     def __init__(self, folder_path, delete_timeout=3):

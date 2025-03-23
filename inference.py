@@ -60,7 +60,7 @@ def multi_model_analysis():
         })
     
     # 简洁输出
-    print("\n综合检测报告：")
+    print("综合检测报告：")
     for result in final_output:
         #print(f"{result['filename']:20} => {result['final_label']} ({result['combined_prob']:.2%})")
         final=final+result['combined_prob']
@@ -95,4 +95,4 @@ def delete_image_folder(folder_path):
 
 
 if __name__ == "__main__":
-    multi_model_analysis()
+    final_output=multi_model_analysis()

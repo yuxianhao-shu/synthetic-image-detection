@@ -102,7 +102,7 @@ class VideoFrameExtractor:
             if self.lock_file:
                 self.lock_file.close()
 
-        print("切片处理完成")
+        print("✅切片处理完成")
 
     def _safe_cleanup_source_video(self):
         """安全清理源视频文件（改进版）"""
@@ -131,7 +131,7 @@ class VideoFrameExtractor:
 
 class VideoFolderProcessor:
     """视频文件夹处理器（改进版）"""
-    def __init__(self, input_folder, output_base, delete_sources=True):
+    def __init__(self, input_folder, output_base, delete_sources=False):
         """
         初始化视频文件夹处理器
         
@@ -181,7 +181,7 @@ if __name__ == "__main__":
     processor = VideoFolderProcessor(
         input_folder="videos",   # 输入视频文件夹路径
         output_base="custom_images", # 统一输出文件夹路径
-        delete_sources=True          # 处理完成后删除源视频
+        delete_sources=False          # 处理完成后删除源视频
     )
     
     processor.process_folder()
