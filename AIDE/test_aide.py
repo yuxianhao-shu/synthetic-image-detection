@@ -8,7 +8,7 @@ from AIDE.data.dct import DCT_base_Rec_Module
 
 IMAGE_FOLDER = "F:/synthetic-image-detection/custom_images"
 RESUME_PATH = "F:/synthetic-image-detection/AIDE/sd14_train.pth"
-DEVICE = "cpu"
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def load_model():
     device = torch.device(DEVICE)

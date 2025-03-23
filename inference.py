@@ -86,7 +86,7 @@ def delete_image_folder(folder_path):
                 os.remove(os.path.join(root, file))
             for dir in dirs:
                 shutil.rmtree(os.path.join(root, dir))
-        print(f"已清空文件夹：{folder_path}")
+        #print(f"已清空文件夹：{folder_path}")
     else:
         print(f"警告：文件夹 {folder_path} 不存在")
 

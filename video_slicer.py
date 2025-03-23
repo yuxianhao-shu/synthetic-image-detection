@@ -46,7 +46,7 @@ class VideoFrameExtractor:
                 f"{self.video_basename}_sec_{second:04d}.jpg"
             )
             cv2.imwrite(output_path, self.reservoir_frame)
-            print(f"保存：{self.video_basename} 第 {second} 秒的帧")
+            #print(f"保存：{self.video_basename} 第 {second} 秒的帧")
 
         # 重置蓄水池状态
         self.current_second = second
@@ -102,7 +102,7 @@ class VideoFrameExtractor:
             if self.lock_file:
                 self.lock_file.close()
 
-        print("视频处理完成")
+        print("切片处理完成")
 
     def _safe_cleanup_source_video(self):
         """安全清理源视频文件（改进版）"""
@@ -146,11 +146,11 @@ class VideoFolderProcessor:
 
     def process_folder(self):
         """处理整个视频文件夹"""
-        print(f"\n开始处理文件夹: {self.input_folder}")
+        #print(f"\n开始处理文件夹: {self.input_folder}")
         
         # 确保输出目录存在
         os.makedirs(self.output_base, exist_ok=True)
-        print(f"输出目录已创建: {self.output_base}")
+        #print(f"输出目录已创建: {self.output_base}")
 
         # 遍历文件夹中的所有文件
         for filename in os.listdir(self.input_folder):
@@ -158,7 +158,7 @@ class VideoFolderProcessor:
             
             # 只处理视频文件
             if os.path.isfile(file_path) and os.path.splitext(filename)[1] in self.video_extensions:
-                print(f"\n处理文件: {filename}")
+                #print(f"\n处理文件: {filename}")
                 
                 # 提取视频基名（去除扩展名）
                 video_basename = os.path.splitext(filename)[0]
@@ -174,7 +174,7 @@ class VideoFolderProcessor:
                 # 执行处理
                 extractor.process()
                 
-        print("\n处理完成")
+        #print("\n处理完成")
 
 if __name__ == "__main__":
     # 使用示例

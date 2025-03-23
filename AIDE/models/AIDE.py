@@ -10,22 +10,23 @@ class HPF(nn.Module):
   def __init__(self):
     super(HPF, self).__init__()
 
-    #Load 30 SRM Filters
+# Load 30 SRM Filters
     all_hpf_list_5x5 = []
 
     for hpf_item in all_normalized_hpf_list:
-      if hpf_item.shape[0] == 3:
-        hpf_item = np.pad(hpf_item, pad_width=((1, 1), (1, 1)), mode='constant')
+        if hpf_item.shape[0] == 3:
+            hpf_item = np.pad(hpf_item, pad_width=((1, 1), (1, 1)), mode='constant')
+        all_hpf_list_5x5.append(hpf_item)
 
-      all_hpf_list_5x5.append(hpf_item)
-
-    hpf_weight = torch.Tensor(all_hpf_list_5x5).view(30, 1, 5, 5).contiguous()
+    # 将列表转换为NumPy数组
+    hpf_np = np.array(all_hpf_list_5x5, dtype=np.float32)  # 确保数据类型为float32
+    # 转换为张量并调整形状
+    hpf_weight = torch.from_numpy(hpf_np).view(30, 1, 5, 5).contiguous()
+    # 扩展为3个输入通道并设置为不可训练参数
     hpf_weight = torch.nn.Parameter(hpf_weight.repeat(1, 3, 1, 1), requires_grad=False)
-   
 
-    self.hpf = nn.Conv2d(3, 30, kernel_size=5, padding=2, bias=False)#30个5x5滤波器
+    self.hpf = nn.Conv2d(3, 30, kernel_size=5, padding=2, bias=False)
     self.hpf.weight = hpf_weight
-
 
   def forward(self, input):
 
