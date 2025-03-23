@@ -46,4 +46,4 @@ if __name__ == "__main__":
         delete_timeout=1      # 设置删除等待时间
     )
     cleaner.clean()
-    print("\n文件夹清理完成")
+    print("文件夹清理完成")
