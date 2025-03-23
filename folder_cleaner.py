@@ -21,7 +21,7 @@ class FolderCleaner:
                 if os.name == 'nt':  # Windows系统需要处理只读文件
                     self._unlock_file(file_path)
                 os.remove(file_path)
-                print(f"✅ 已删除：{file_path}")
+                #print(f"✅ 已删除：{file_path}")
                 return True
             except PermissionError:
                 print(f"⏳ 文件被占用，等待重试 ({attempt+1}/{max_retries})")
@@ -44,7 +44,7 @@ class FolderCleaner:
                 if os.path.isfile(file_path):
                     self._safe_delete_file(file_path)
 
-        print(f"🗃️ 已完成清理，文件夹结构保留在: {self.folder_path}")
+        print(f"🗃️ 已完成清理")
 
 if __name__ == "__main__":
     cleaner = FolderCleaner(
